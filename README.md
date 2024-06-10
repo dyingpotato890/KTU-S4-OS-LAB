@@ -5,6 +5,7 @@ This repository is dedicated to storing programs necessary for the Operating Sys
 ## Table of Contents
 
 - [Programs](#programs)
+  
    - Shell Programming
    - System Calls
    - Scheduling Algorithms
