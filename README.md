@@ -27,7 +27,8 @@ This repository is dedicated to storing programs necessary for the Operating Sys
    - [Fibonacci Series](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Shell%20Programming/fibonacci.sh)
   
 2. **System Calls**
-   - Programs demonstrating various system calls.
+   - [Creating A Process Using fork()](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/System%20Calls/fork.c)
+   - [Creating A Sub-Process Using fork() and exec()](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/System%20Calls/forkExec.c)
    
 4. **Scheduling Algorithms**
    - [FCFS Scheduling](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Scheduling%20Algorithms/FCFS.c)
