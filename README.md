@@ -68,5 +68,5 @@ This repository is dedicated to storing programs necessary for the Operating Sys
 ## Contributors
 
 - [Niranjay Ajayan](https://github.com/dyingpotato890)
-- [Navneet Ranjish Pillai](https://github.com/Lionel-Logan) .
+- [Navneet Ranjish Pillai](https://github.com/Lionel-Logan)
 - [Noel George C J](https://github.com/noelg-cj) .
