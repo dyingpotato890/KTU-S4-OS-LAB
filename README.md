@@ -32,7 +32,7 @@ This repository is dedicated to storing programs necessary for the Operating Sys
    
 4. **Scheduling Algorithms**
    - [FCFS Scheduling](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Scheduling%20Algorithms/FCFS.c)
-   - SJF Scheduling [Preemeptive](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Scheduling%20Algorithms/sjfP.c) & [Non-Preemptive](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Scheduling%20Algorithms/prioritySchedulingNP.c)
+   - SJF Scheduling [Preemeptive](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Scheduling%20Algorithms/sjfP.c) & [Non-Preemptive](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Scheduling%20Algorithms/sjfNP.c)
    - Priority Scheduling [Preemeptive](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Scheduling%20Algorithms/prioritySchedulingP.c) & [Non-Preemptive](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Scheduling%20Algorithms/prioritySchedulingNP.c)
    - [Round Robin Scheduling](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/CPU%20Scheduling/RoundRobin.c)
 
