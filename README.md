@@ -46,7 +46,7 @@ This repository is dedicated to storing programs necessary for the Operating Sys
    
 5. **Page Replacement Algorithms**
    - [FIFO](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Page%20Replacement%20Algorithms/FIFO.c)
-   - LFU
+   - [LFU](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Page%20Replacement%20Algorithms/LFU.c)
    - [LRU](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/Page%20Replacement%20Algorithms/LRU.c)
 
 7. **Semaphores & Bankers Algorithm**
