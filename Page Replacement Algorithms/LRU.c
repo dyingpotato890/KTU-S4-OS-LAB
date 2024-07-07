@@ -1,96 +1,107 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-char memory[25], tempMemory[25];
-int topMain = -1, topTemp = -1;
+int hitCount = 0, missCount = 0;
+int MAX_FRAMES;
+int frames[100];
+int counter[100];
 
-void PushToMemory(char page){
-    topMain++;
-    memory[topMain] = page;
+void initialize() {
+    for (int i = 0; i < MAX_FRAMES; i++) {
+        frames[i] = -1;
+        counter[i] = 0; 
+    }
 }
 
-void PushToTemp(char page){
-    topTemp++;
-    tempMemory[topTemp] = page;
+void displayFrames() {
+    for (int i = 0; i < MAX_FRAMES; i++) {
+        if (frames[i] != -1)
+            printf("%d ", frames[i]);
+        else
+            printf("- ");
+    }
+    printf("\n");
 }
 
-char PopFromMemory(){
-    char ele = memory[topMain];
-    memory[topMain] = ' ';
-    topMain--;
-    return ele;
-}
+// Function to find the least recently used frame
+int findLRU() {
+    int max = counter[0];
+    int lru_frame = 0;
 
-char PopFromTemp(){
-    char ele = tempMemory[topTemp];
-    tempMemory[topTemp] = ' ';
-    topTemp--;
-    return ele;
-}
-
-int isInMemory(char page, int n){
-    for(int i = 0; i < n; i++){
-        if(page == memory[i]){
-            return 1;
+    for (int i = 1; i < MAX_FRAMES; i++) {
+        if (counter[i] > max) {
+            max = counter[i];
+            lru_frame = i;
         }
     }
-    return 0;
+
+    return lru_frame;
 }
 
-void Execute(char pages[], int n){
-    int hitCount = 0, missCount = 0;
-    for(int i = 0; i < n; i++){
-        memory[i] = ' ';
-        tempMemory[i] = ' ';
-    }
-    for(int i = 0; pages[i] != '\0'; i++){
-        while(topMain != -1){
-            PushToTemp(PopFromMemory());
-        }
-        PushToMemory(pages[i]);
-        int hitMarker = 0;
-        while(topTemp != -1 && topMain != n-1){
-            if(isInMemory(tempMemory[topTemp], n) == 0){
-                PushToMemory(PopFromTemp());
-            }
-            else{
-                tempMemory[topTemp] = ' ';
-                topTemp--;
-                hitMarker = 1;
+void LRU(int pages[], int n) {
+    int page_faults = 0;
+
+    for (int i = 0; i < n; i++) {
+        int page = pages[i];
+        int found = 0;
+
+        // Check if page already exists in frames
+        for (int j = 0; j < MAX_FRAMES; j++) {
+            if (frames[j] == page) {
+                found = 1;
+                printf("page %d is already there \n",page);
+                hitCount++;
+                break;
             }
         }
 
-        if(topMain == n-1){
-            if(isInMemory(tempMemory[topTemp], n) == 1){
-                hitMarker = 1;
+        if (!found) {
+            int lru_frame = findLRU();
+            printf("page %d is loaded in frame %d\n",page,lru_frame);
+            frames[lru_frame] = page;
+            counter[lru_frame] = 0;
+            page_faults++;
+            missCount++;
+        }
+
+        // Increment counter for all frames
+        for (int j = 0; j < MAX_FRAMES; j++) {
+            counter[j]++;
+        }
+
+        // Reset counter for the used frame
+        for (int j = 0; j < MAX_FRAMES; j++) {
+            if (frames[j] == page) {
+                counter[j] = 0;
+                break;
             }
-            tempMemory[topTemp] = ' ';
-            topTemp = -1;
         }
 
-        if(hitMarker == 1) hitCount++;
-        else missCount++;
-
-        for(int j = topMain; j >= 0; j--){
-            printf("%c ", memory[j], hitMarker);
-        }
-        printf("\n");
+        displayFrames();
     }
 
-    printf("\nHit Count = %d", hitCount);
-    printf("\nMiss Count = %d", missCount);
+    printf("Total Page Faults: %d\n", page_faults);
+    printf("Hit Count: %d\n", hitCount);
+    printf("Miss Count: %d\n", missCount);
     printf("\nHit Ratio = %f", (float)hitCount / (float)(hitCount + missCount));
     printf("\nMiss Ratio = %f", (float)missCount / (float)(hitCount + missCount));
 }
 
-void main(){
-    printf("LRU Page Replacement\n");
-    printf("--------------------\n\n");
-    printf("Enter the Page String: ");
-    char pages[25];
-    scanf("%s", pages);
-    printf("Enter the number of frames: ");
+int main() {
     int n;
+    printf("Enter The Number of Pages: ");
     scanf("%d", &n);
+    int pages[n];
 
-    Execute(pages, n);
+    printf("Enter The Page Reference Sequence: ");
+    for (int i = 0; i < n; i++)
+        scanf("%d", &pages[i]);
+
+    printf("Enter The Number of Frames: ");
+    scanf("%d", &MAX_FRAMES);
+
+    initialize();
+    LRU(pages, n);
+
+    return 0;
 }
