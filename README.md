@@ -62,11 +62,11 @@ This repository is dedicated to storing programs necessary for the Operating Sys
    
 9. **File Allocation Algorithms**
    - [Contiguous Allocation](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/File%20Allocation%20Algorithms/contiguousFile.c)
-   - Linked Allocation
+   - (Linked Allocation)[https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/File%20Allocation%20Algorithms/linkedFile.c]
    - [Indexed Allocation](https://github.com/dyingpotato890/KTU-S4-OS-LAB/blob/main/File%20Allocation%20Algorithms/indexedFile.c)
 
 ## Contributors
 
-- [Niranjay Ajayan](https://github.com/dyingpotato890)
 - [Navneet Ranjish Pillai](https://github.com/Lionel-Logan)
-- [Noel George C J](https://github.com/noelg-cj) 
+- [Niranjay Ajayan](https://github.com/dyingpotato890)
+- [Noel George C J](https://github.com/noelg-cj)
