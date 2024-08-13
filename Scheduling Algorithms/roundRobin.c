@@ -148,13 +148,17 @@ void ExecuteRoundRobin(struct node* head, int TQ, int n){
         else{
             currentProcess->tempbt = (currentProcess->tempbt) - TQ;
             currentCT += TQ;
-            struct node* temp = currentProcess->next;
-            while(temp != NULL && (temp->at <= currentCT) && (temp->isCompleted == 0)){
-                if(isInQueue(queue, temp) == 0) EnQueue(queue, temp);
-                temp = temp->next;
-            }
-            EnQueue(queue, currentProcess);
         }
+
+        struct node* temp = currentProcess -> next;
+        while (temp != NULL) {
+            if (temp -> at <= currentCT && temp -> isCompleted == 0 && !isInQueue(queue, temp))
+                EnQueue(queue, temp);
+            temp = temp->next;
+        }
+
+        if (currentProcess -> tempbt > 0) 
+            EnQueue(queue, currentProcess);
     }
     CalculateWTandTAT(head);
     display(head, n);
