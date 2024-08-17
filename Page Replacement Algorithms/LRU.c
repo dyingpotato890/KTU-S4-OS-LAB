@@ -7,9 +7,8 @@ int MAX_FRAMES;
 int hitCount = 0, missCount = 0;
 
 void initialize(int frames[]) {
-    for (int i = 0; i < MAX_FRAMES; i++) {
+    for (int i = 0; i < MAX_FRAMES; i++)
         frames[i] = -1;
-    }
 
     memset(lastused, 0, sizeof(lastused));
 }
@@ -68,9 +67,8 @@ int main() {
     scanf("%d", &n);
 
     printf("Enter the page reference sequence: ");
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
         scanf("%d", &pages[i]);
-    }
 
     printf("Enter The Number of Frames: ");
     scanf("%d", &MAX_FRAMES);
