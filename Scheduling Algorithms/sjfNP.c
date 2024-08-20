@@ -141,6 +141,7 @@ void executeSJF(struct node* head) {
 
         pointer = -1;
     }
+    SortByID(head);
     display(head);
 }
 
