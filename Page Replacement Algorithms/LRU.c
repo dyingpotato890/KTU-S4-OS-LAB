@@ -49,7 +49,7 @@ void LRU(int pages[], int n) {
         for (int j = 0; j < MAX_FRAMES; j++) {
             if (frames[j] == page) {
                 found = 1;
-                printf("page %d is already there \n",page);
+                printf("Page %d is Already Inserted \n",page);
                 hitCount++;
                 break;
             }
@@ -57,7 +57,7 @@ void LRU(int pages[], int n) {
 
         if (!found) {
             int lru_frame = findLRU();
-            printf("page %d is loaded in frame %d\n",page,lru_frame);
+            printf("Page %d is Loaded in Frame %d\n",page,lru_frame);
             frames[lru_frame] = page;
             counter[lru_frame] = 0;
             page_faults++;
@@ -80,7 +80,6 @@ void LRU(int pages[], int n) {
         displayFrames();
     }
 
-    printf("Total Page Faults: %d\n", page_faults);
     printf("Hit Count: %d\n", hitCount);
     printf("Miss Count: %d\n", missCount);
     printf("\nHit Ratio = %f", (float)hitCount / (float)(hitCount + missCount));
